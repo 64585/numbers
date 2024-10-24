@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath> // for M_PI
+
+class Cylinder {
+private:
+    double radius;
+    double height;
+
+public:
+    // Constructor to initialize radius and height
+    Cylinder(double r, double h) : radius(r), height(h) {}
+
+    // Member function to calculate surface area
+    double surfaceArea() {
+        return 2 * M_PI * radius * radius + 2 * M_PI * radius * height; // 2πr² + 2πrh
+    }
+
+    // Member function to calculate volume
+    double volume() {
+        return M_PI * radius * radius * height; // πr²h
+    }
+};
+
+int main() {
+    double radius, height;
+
+    // Input radius and height from the user
+    std::cout << "Enter the radius of the cylinder: ";
+    std::cin >> radius;
+    std::cout << "Enter the height of the cylinder: ";
+    std::cin >> height;
+
+    // Create an object of Cylinder
+    Cylinder cylinder(radius, height);
+
+    // Output surface area and volume
+    std::cout << "Surface Area: " << cylinder.surfaceArea() << std::endl;
+    std::cout << "Volume: " << cylinder.volume() << std::endl;
+
+    return 0;
+}
